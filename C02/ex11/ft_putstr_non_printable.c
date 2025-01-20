@@ -41,7 +41,6 @@ void	write_hex_value(int decimal)
 void	ft_putstr_non_printable(char *str)
 {
 	int	p;
-	int	cap_n;
 
 	p = 0;
 	while (str[p] != '\0')
