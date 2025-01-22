@@ -12,6 +12,22 @@
 
 char	*ft_strcapitalize(char *str);
 
+int	ft_is_alpha_numeric(char c)
+{
+	int	is_alpha;
+
+	is_alpha = 0;
+	if (c >= '0' && c <= '9')
+	{
+		is_alpha = 1;
+	}
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	{
+		is_alpha = 1;
+	}
+	return (is_alpha);
+}
+
 char	*ft_strcapitalize(char *str)
 {
 	int	p;
@@ -21,16 +37,16 @@ char	*ft_strcapitalize(char *str)
 	cap_n = 1;
 	while (str[p] != '\0')
 	{
-		if ((str[p] >= 97 && str[p] <= 122) && (cap_n == 1))
+		if ((str[p] >= 'a' && str[p] <= 'z') && (cap_n == 1))
 		{
 			str[p] -= 32;
 		}
-		else if ((str[p] >= 65 && str[p] <= 90) && (cap_n == 0))
+		else if ((str[p] >= 'A' && str[p] <= 'Z') && (cap_n == 0))
 		{
 			str[p] += 32;
 		}
 		cap_n = 0;
-		if (str[p] <= 47 || (str[p] > 90 && str[p] < 94) || str[p] >= 123)
+		if (ft_is_alpha_numeric(str[p]) == 0)
 		{
 			cap_n = 1;
 		}

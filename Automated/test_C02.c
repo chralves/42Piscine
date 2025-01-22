@@ -25,6 +25,7 @@
 #include "./ex09/ft_strcapitalize.c"
 #include "./ex10/ft_strlcpy.c"
 #include "./ex11/ft_putstr_non_printable.c"
+#include "./ex12/ft_print_memory.c"
 
 int	main(void)
 {
@@ -169,6 +170,8 @@ int	main(void)
 	char	source3[] = "Long text to test";
 	char	destination4[] = "Copy the string here";
 	char	destination5[] = "Or here";
+	char	destination6[] = "here";
+
 	int	size4 = 21;
 	int	size5 = 8;
 
@@ -188,13 +191,35 @@ int	main(void)
 	printf("S2: %s\n", source3);
 	printf("C2: %s\n", destination5);
 
+	printf("S2: %s\n", source3);
+	printf("D2: %s\n", destination6);
+
+	ft_strlcpy(destination6, source3, size5);
+
+	printf("S2: %s\n", source3);
+	printf("D2: %s\n", destination6);
+
 	printf("\n\n");
 
 	printf("Testando ft_putstr_non_printable()\n");
 	
-	ft_putstr_non_printable("Teste\nnumero 1\t.");
+	ft_putstr_non_printable("Teste\n (\\0a) numero 1\t (\\09).");
+	printf("\n");
+	ft_putstr_non_printable("Teste\r (\\0d) numero 2\b (\\08)");
+
 	printf("\n\n");
-	ft_putstr_non_printable("Teste\rnumero 2\b");
+
+	printf("Testando ft_print_memory()\n");
+
+	char	*text ="Texto de exemplo para testar a funcao de leitura de memoria";
+
+	ft_print_memory(text, 128);
+
+	printf("\n");
+
+	char	*str = "Bonjour les aminches\t\n\tc. est fou\btout\bce qu on peut faire avec\n\n\nprint_memory\t\n..lol\tlol. \0";
+	
+	ft_print_memory(str, 92);
 
 	printf("\n\n");
 }

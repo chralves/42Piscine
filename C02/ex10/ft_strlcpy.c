@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 
 unsigned int	get_string_size(char *str)
@@ -27,19 +29,18 @@ unsigned int	get_string_size(char *str)
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	p;
-	unsigned int	dest_size;
+	unsigned int	src_size;
 
-	dest_size = get_string_size(dest);
+	src_size = get_string_size(src);
 	p = 0;
-	while (src[p] != '\0' && p < (size -1))
+	while (src[p] != '\0' && p + 1 < size)
 	{
 		dest[p] = src[p];
 		p++;
 	}
-	while (p < size)
+	if (size > 0)
 	{
 		dest[p] = '\0';
-		p++;
 	}
-	return (size);
+	return (src_size);
 }

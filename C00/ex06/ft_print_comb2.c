@@ -25,7 +25,7 @@ void	ft_two_digits(int number, int position)
 	two = '0' + number % 10;
 	write(1, &one, 1);
 	write(1, &two, 1);
-	if (position == 100)
+	if (position == 999)
 	{
 		write(1, " ", 1);
 	}
@@ -44,7 +44,7 @@ void	ft_print_comb2(void)
 	second = 1;
 	while (first <= 98 && second <= 99)
 	{
-		ft_two_digits(first, 100);
+		ft_two_digits(first, 999);
 		ft_two_digits(second, first);
 		second++;
 		if (second > 99)
