@@ -27,7 +27,7 @@ void	print_number_in_hexa(unsigned long long decimal, int digits)
 		index++;
 	}
 	index = digits - 1;
-	while (decimal >= 0 && index >= 0)
+	while (index >= 0)
 	{
 		remainder = (decimal % 16) + 48;
 		if (remainder > '9')
@@ -82,40 +82,27 @@ void	print_content_ascii(char *str, int size)
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	int					print_size;
+	int					last_block;
 	int					print_lines;
-	unsigned long long	address_of_pointer;
+	int					i;
 
-	address_of_pointer = (unsigned long long) &addr[0];
+	i = 0;
 	print_size = 16;
-
 	print_lines = size / 16;
 	if ((size % 16) > 0)
 	{
 		print_lines += 1;
 	}
-	
-	while (print_lines > 0)
+	last_block = size % 16;
+	while (i < print_lines)
 	{
-		print_number_in_hexa(address_of_pointer, 16);
+		print_number_in_hexa((unsigned long long) &addr + (16 * i), 16);
 		write(1, ": ", 2);
-		print_content_hexa(addr, print_size);
-		print_content_ascii(addr, print_size);
+		print_content_hexa(addr + (16 * i), print_size);
+		print_content_ascii(addr + (16 * i), print_size);
 		write(1, "\n", 1);
-		addr += 16;
-		address_of_pointer = (unsigned long long) &addr[0];
-		if (print_lines == 1)
-		{
-			print_size = size % 16;
-		}
-		print_lines--;
+		if (i++ == (print_lines -2) && last_block != 0)
+			print_size = last_block;
 	}
 	return (addr);
-}
-
-int main (void)
-{
-	char *text = "Teste de memoria com print memory function &*@(*#)&\n\t\0";
-	int size = 57;
-
-	ft_print_memory(text, 66);
 }

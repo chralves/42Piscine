@@ -24,6 +24,11 @@ void	ft_putnbr(int number)
 	if (number < 0)
 	{
 		write(1, "-", 1);
+		if (number == -2147483648)
+		{
+			write(1, "2", 1);
+			number = -147483648;
+		}
 		number = number * -1;
 	}
 	rest = '0' + (number % 10);
