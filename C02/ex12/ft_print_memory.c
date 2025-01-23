@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	*ft_print_memory(void *addr, unsigned int size);
 
@@ -83,13 +82,19 @@ void	print_content_ascii(char *str, int size)
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	int					print_size;
-	unsigned int		i;
+	int					print_lines;
 	unsigned long long	address_of_pointer;
 
 	address_of_pointer = (unsigned long long) &addr[0];
 	print_size = 16;
-	i = 0;
-	while (i <= (size - 1) / 16)
+
+	print_lines = size / 16;
+	if ((size % 16) > 0)
+	{
+		print_lines += 1;
+	}
+	
+	while (print_lines > 0)
 	{
 		print_number_in_hexa(address_of_pointer, 16);
 		write(1, ": ", 2);
@@ -98,11 +103,19 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		write(1, "\n", 1);
 		addr += 16;
 		address_of_pointer = (unsigned long long) &addr[0];
-		if (i == (size / 16) - 1)
+		if (print_lines == 1)
 		{
 			print_size = size % 16;
 		}
-		i++;
+		print_lines--;
 	}
 	return (addr);
+}
+
+int main (void)
+{
+	char *text = "Teste de memoria com print memory function &*@(*#)&\n\t\0";
+	int size = 57;
+
+	ft_print_memory(text, 66);
 }
