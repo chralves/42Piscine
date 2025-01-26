@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 21:07:07 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/25 22:47:17 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/26 09:27:26 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -86,7 +86,7 @@ int	is_valid_row(int matrix[4][4], int n, int r, int row)
 		}
 		i--;
 	}
-	if (cols == n || cols_r == r)
+	if (cols == n && cols_r == r)
 		return (1);
 	return (0);
 }
@@ -118,7 +118,7 @@ int	is_valid_col(int matrix[4][4], int n, int r, int col)
 			cols_r++;
 		}
 	}
-	if (cols == n || cols_r == r)
+	if (cols == n && cols_r == r)
 		return (1);
 	return (0);
 }
@@ -186,10 +186,9 @@ int	populate_matrix(int matrix[4][4], int row, int col,	int cu[4], int cd[4], in
 		n_row = row;
 	}
 	value = 1;
-	while (value <= 4)
+	while (value <= 4) // Tiene que volver atras...
 	{
-		//printf("Value: %d\n", value);
-		if (!is_in_matrix(matrix, row, col, value))
+		if (is_in_matrix(matrix, row, col, value) == 0)
 		{
 			matrix[row][col] = value;
 			if (populate_matrix(matrix, n_row, n_col, cu, cd, rr, rl))
@@ -209,6 +208,11 @@ int	main (void)
 	int	cd[4] = {1, 2, 2, 2};
 	int	rr[4] = {4, 3, 2, 1};
 	int	rl[4] = {1, 2, 2, 2};
+
+	// int	cu[4] = {3, 2, 2, 1};
+	// int	cd[4] = {1, 3, 2, 2};
+	// int	rr[4] = {4, 2, 3, 1};
+	// int	rl[4] = {1, 2, 2, 2};
 
 	initialize_matrix(matrix);
 	print_matrix(matrix);
