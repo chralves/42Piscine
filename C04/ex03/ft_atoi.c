@@ -6,11 +6,9 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:08:36 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/24 23:03:03 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:00:34 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	is_space(char *str)
 {

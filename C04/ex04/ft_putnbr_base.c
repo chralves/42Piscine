@@ -6,18 +6,18 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:18:45 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/26 16:43:41 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:55:46 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
 void	ft_putnbr_base(int nbr, char *base);
 
 int	check_valid_base(char *str)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -35,49 +35,37 @@ int	check_valid_base(char *str)
 		}
 		i++;
 	}
-	if (i > 0)
+	if (i > 1)
 		return (i);
-	return(0);
+	return (0);
+}
+
+int	abs(int num)
+{
+	if (num == -2147483648)
+		return (2147483647);
+	else if (num < 0)
+		return (-num);
+	return (num);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int	bn;
+	int	remainder;
 
 	bn = check_valid_base(base);
-
 	if (bn == 0)
-		return (0);
-
-	if (nbr == 0)
-		write(1, &base[i], 1);
-
-	while (nbr >= 0)
+		return ;
+	if (nbr < 0)
+		write(1, "-", 1);
+	if (abs(nbr) >= bn)
 	{
-
+		remainder = nbr % bn;
+		nbr = abs(nbr / bn);
+		ft_putnbr_base(nbr, base);
+		write(1, &base[remainder], 1);
+		return ;
 	}
-
-
-	char	hex_value[2];
-	int		index;
-	int		remainder;
-
-	index = 1;
-	hex_value[0] = '0';
-	hex_value[1] = '0';
-	while (decimal >= 0 && index >= 0)
-	{
-		remainder = (decimal % 16) + 48;
-		if (remainder > '9')
-		{
-			remainder = remainder + 39;
-		}
-		hex_value[index] = remainder;
-		decimal = decimal / 16;
-		index--;
-}
-
-int	main (void)
-{
-	
+	write(1, &base[nbr], 1);
 }
