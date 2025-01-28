@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:18:45 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/27 14:55:46 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:09:48 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, "-", 1);
 	if (abs(nbr) >= bn)
 	{
-		remainder = nbr % bn;
+		remainder = abs(nbr % bn);
 		nbr = abs(nbr / bn);
 		ft_putnbr_base(nbr, base);
 		write(1, &base[remainder], 1);
