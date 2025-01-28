@@ -6,26 +6,25 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 10:50:44 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/28 20:46:15 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:35:16 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 int	is_valid_position(int pos, int index, int *array)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < index)
-    {
-        if (array[i] == pos || array[i] == pos - (index - i) 
-        	|| array[i] == pos + (index - i))
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	while (i < index)
+	{
+		if (array[i] == pos || array[i] == pos - (index - i)
+			|| array[i] == pos + (index - i))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 void	print_int_array(int array[10])
@@ -55,7 +54,7 @@ void	init_int_array(int *array)
 	}
 }
 
-int	position_the_queens (int start, int *sol, int *array)
+int	position_the_queens(int start, int *sol, int *array)
 {
 	int	value;
 
@@ -76,7 +75,7 @@ int	position_the_queens (int start, int *sol, int *array)
 		}
 		value++;
 	}
-	return(0);
+	return (0);
 }
 
 int	ft_ten_queens_puzzle(void)
@@ -84,14 +83,8 @@ int	ft_ten_queens_puzzle(void)
 	int	sol;
 	int	array[10];
 
-    sol = 0;
+	sol = 0;
 	init_int_array(array);
 	position_the_queens(0, &sol, array);
-
 	return (sol);
-}
-
-int main(void)
-{
-	ft_ten_queens_puzzle();
 }

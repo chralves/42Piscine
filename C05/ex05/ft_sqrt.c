@@ -6,10 +6,9 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 09:58:27 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/28 10:08:12 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:31:50 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 int	ft_sqrt(int nb)
 {
@@ -20,7 +19,7 @@ int	ft_sqrt(int nb)
 	{
 		if ((root * root) == nb)
 			return (root);
-		else if ((root *root) > nb)
+		else if ((root * root) > nb)
 			return (0);
 		root++;
 	}

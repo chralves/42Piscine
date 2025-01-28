@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 21:44:13 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/27 21:48:46 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:35:38 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@ int	ft_recursive_power(int nb, int power)
 {
 	if (power < 0)
 		return (0);
-
 	if (power == 0)
 		return (1);
 	else
