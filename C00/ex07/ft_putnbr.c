@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chgonzal <chgonzal@student.42porto.com     +#+  +:+       +#+        */
+/*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:35:12 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/17 13:35:41 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:28:34 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

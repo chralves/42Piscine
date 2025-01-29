@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 13:53:16 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/26 15:57:16 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:04:50 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	print_matrix(int matrix[4][4])
 		{
 			to_print = matrix[row][col] + '0';
 			write(1, &to_print, 1);
+			if (col < 3)
+				write(1, " ", 1);
 			col++;
 		}
 		write(1, "\n", 1);
