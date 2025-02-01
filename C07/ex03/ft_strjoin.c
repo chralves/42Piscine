@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:41:06 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/30 17:06:55 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:15:44 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		join_size += ft_strlen(strs[i - 1]);
 	}
 	join_size += ft_strlen(sep) * (size - 1);
-
-	join = (char*)malloc(join_size * sizeof(char) + 1);
+	join = (char *)malloc(join_size * sizeof(char) + 1);
 	if (join == NULL || size == 0)
 		return (join);
 	join[0] = '\0';
 	j = 0;
-	while(++j < size)
+	while (++j < size)
 	{
 		ft_strcat(join, strs[j - 1], sep);
 	}

@@ -6,9 +6,11 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 12:32:01 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/29 15:39:17 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:11:42 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
@@ -18,7 +20,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 
 	i = 0;
 	diff = max - min;
-	array = (int*)malloc(diff * sizeof(int));
+	array = (int *)malloc(diff * sizeof(int));
 	if (array == NULL || diff <= 0)
 	{
 		*range = NULL;

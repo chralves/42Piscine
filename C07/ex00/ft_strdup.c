@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 09:54:42 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/29 10:23:36 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:10:36 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,10 @@ char	*ft_strdup(char *src)
 	int		lenght;
 
 	lenght = ft_strlen(src);
-
-	new_string = (char*)malloc((lenght + 1) * sizeof(char));
-
+	new_string = (char *)malloc((lenght + 1) * sizeof(char));
 	if (new_string == NULL)
-	{
-		return(0);
-	}
+		return (0);
 	else
-	{
 		ft_strcpy(new_string, src);
-	}
-	return(new_string);
+	return (new_string);
 }
