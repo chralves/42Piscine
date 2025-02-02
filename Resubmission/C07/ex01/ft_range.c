@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:45:41 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/01 19:38:29 by chgonzal         ###   ########.fr       */
+/*   Created: 2025/01/29 12:01:46 by chgonzal          #+#    #+#             */
+/*   Updated: 2025/02/02 16:43:50 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include <stdlib.h>
 
+int	*ft_range(int min, int max)
+{
+	int	*array;
+	int	i;
 
-
-
-#endif
+	if (min >= max)
+		return (NULL);
+	array = (int *)malloc((max - min) * sizeof(int));
+	if (array == NULL)
+		return (NULL);
+	i = 0;
+	while (min < max)
+	{
+		array[i] = min;
+		min++;
+		i++;
+		
+	}
+	return (array);
+}

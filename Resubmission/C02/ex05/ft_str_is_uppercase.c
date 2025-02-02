@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:45:41 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/01 19:38:29 by chgonzal         ###   ########.fr       */
+/*   Created: 2025/01/20 11:23:33 by chgonzal          #+#    #+#             */
+/*   Updated: 2025/02/02 14:27:21 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+int	ft_str_is_uppercase(char *str)
+{
+	int	is_upper_case;
+	int	p;
 
-
-
-
-#endif
+	is_upper_case = 1;
+	p = 0;
+	while (str[p] != '\0')
+	{
+		if (str[p] < 65 || str[p] > 90)
+		{
+			is_upper_case = 0;
+			return (is_upper_case);
+		}
+		p++;
+	}
+	return (is_upper_case);
+}

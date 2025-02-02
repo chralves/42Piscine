@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:45:41 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/01 19:38:29 by chgonzal         ###   ########.fr       */
+/*   Created: 2025/01/19 15:57:32 by chgonzal          #+#    #+#             */
+/*   Updated: 2025/02/02 14:27:09 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int	p;
 
-
-
-
-#endif
+	p = 0;
+	while (src[p] != '\0' && p < n)
+	{
+		dest[p] = src[p];
+		p++;
+	}
+	while (p < n)
+	{
+		dest[p] = '\0';
+		p++;
+	}
+	return (dest);
+}

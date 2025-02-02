@@ -1,19 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:45:41 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/01 19:38:29 by chgonzal         ###   ########.fr       */
+/*   Created: 2025/01/15 18:14:17 by chgonzal          #+#    #+#             */
+/*   Updated: 2025/02/02 14:14:44 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include <unistd.h>
 
+void	ft_print_comb(void)
+{
+	char	c;
+	char	d;
+	char	u;
 
-
-
-#endif
+	c = '0';
+	while (c <= '7')
+	{
+		d = c;
+		while (++d <= '8')
+		{
+			u = d;
+			while (++u <= '9')
+			{
+				write(1, &c, 1);
+				write(1, &d, 1);
+				write(1, &u, 1);
+				if (c < '7')
+				{
+					write(1, ", ", 2);
+				}
+			}
+		}
+		c++;
+	}
+}

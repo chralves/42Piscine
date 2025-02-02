@@ -1,19 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:45:41 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/01 19:38:29 by chgonzal         ###   ########.fr       */
+/*   Created: 2025/01/17 13:35:12 by chgonzal          #+#    #+#             */
+/*   Updated: 2025/02/02 14:14:57 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include <unistd.h>
 
+void	ft_putnbr(int nb)
+{
+	char	num_array[11];
+	int		i;
 
-
-
-#endif
+	i = 0;
+	if (nb < 0)
+	{
+		if (nb == -2147483648)
+		{
+			write(1, "-2147483648", 11);
+			return ;
+		}
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	while (nb > 9)
+	{
+		num_array[i++] = '0' + (nb % 10);
+		nb = nb / 10;
+	}
+	num_array[i] = nb + '0';
+	while (i >= 0)
+	{
+		write(1, &num_array[i--], 1);
+	}
+}

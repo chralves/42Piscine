@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:45:41 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/01 19:38:29 by chgonzal         ###   ########.fr       */
+/*   Created: 2025/01/20 12:04:51 by chgonzal          #+#    #+#             */
+/*   Updated: 2025/02/02 14:27:29 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+char	*ft_strlowcase(char *str)
+{
+	int	p;
 
-
-
-
-#endif
+	p = 0;
+	while (str[p] != '\0')
+	{
+		if (str[p] >= 65 && str[p] <= 90)
+		{
+			str[p] += 32;
+		}
+		p++;
+	}
+	return (str);
+}

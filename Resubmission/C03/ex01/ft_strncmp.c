@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:45:41 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/01 19:38:29 by chgonzal         ###   ########.fr       */
+/*   Created: 2025/01/21 11:40:10 by chgonzal          #+#    #+#             */
+/*   Updated: 2025/02/02 14:44:15 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int	i;
 
-
-
-
-#endif
+	i = 0;
+	while (s1[i] != '\0' && i < n)
+	{
+		if (s2[i] != '\0')
+		{
+			if (s1[i] != s2[i])
+			{
+				return (s1[i] - s2[i]);
+			}
+		}
+		else
+		{
+			return (s1[i]);
+		}
+		i++;
+	}
+	if (s2[i] != '\0' && i < n)
+	{
+		return (-s2[i]);
+	}
+	return (0);
+}

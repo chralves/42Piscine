@@ -1,19 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:45:41 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/01 19:38:29 by chgonzal         ###   ########.fr       */
+/*   Created: 2025/01/29 12:32:01 by chgonzal          #+#    #+#             */
+/*   Updated: 2025/02/02 16:43:49 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include <stdlib.h>
 
+int	ft_ultimate_range(int **range, int min, int max)
+{
+	int	*array;
+	int	i;
+	int	size;
 
-
-
-#endif
+	if (min >= max)
+	{
+		*range = NULL;
+		return (0);
+	}
+	array = (int *)malloc((max - min) * sizeof(int));
+	if (array == NULL)
+	{
+		*range = NULL;
+		return (-1);
+	}
+	i = 0;
+	size = max - min;
+	while (min < max)
+	{
+		array[i] = min;
+		i++;
+		min++;
+	}
+	*range = array;
+	return (size);
+}
