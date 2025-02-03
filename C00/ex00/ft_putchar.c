@@ -6,13 +6,11 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:12:01 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/15 13:38:19 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/02 14:13:47 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	ft_putchar(char c);
 
 void	ft_putchar(char c)
 {

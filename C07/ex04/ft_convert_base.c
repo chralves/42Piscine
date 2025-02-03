@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 18:20:28 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/31 12:08:27 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:15:17 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,7 @@ char	*put_number_in_base_x(int nbr, char *base_to, int i, char *return_nbr)
 		nbr *= -1;
 	}
 	if (nbr >= base)
-	{
 		put_number_in_base_x(nbr / base, base_to, i - 1, return_nbr);
-	}
 	return_nbr[i] = base_to[nbr % base];
 	return_nbr[i + 1] = '\0';
 	return (return_nbr);

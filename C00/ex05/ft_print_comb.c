@@ -6,13 +6,11 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:17 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/16 15:55:16 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/02 14:14:44 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	ft_print_comb(void);
 
 void	ft_print_comb(void)
 {

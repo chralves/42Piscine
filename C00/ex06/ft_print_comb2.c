@@ -6,15 +6,11 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:49:54 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/17 10:16:46 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/02 14:14:53 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	ft_print_comb2(void);
-
-void	ft_two_digits(int number, int position);
 
 void	ft_two_digits(int number, int position)
 {

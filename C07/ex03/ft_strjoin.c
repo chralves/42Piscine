@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:41:06 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/31 12:15:44 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:19:41 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int	ft_strlen(char *str)
 
 	size = 0;
 	while (str[size] != '\0')
-	{
 		size++;
-	}
 	return (size);
 }
 
@@ -60,20 +58,18 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 	i = 0;
 	join_size = 0;
-	while (++i < size)
-	{
+	while (i++ < size)
 		join_size += ft_strlen(strs[i - 1]);
-	}
-	join_size += ft_strlen(sep) * (size - 1);
+	if (join_size > 0)
+		join_size += ft_strlen(sep) * (size - 1);
 	join = (char *)malloc(join_size * sizeof(char) + 1);
-	if (join == NULL || size == 0)
-		return (join);
+	if (join == NULL)
+		return (NULL);
 	join[0] = '\0';
 	j = 0;
-	while (++j < size)
-	{
+	while (j++ < size)
 		ft_strcat(join, strs[j - 1], sep);
-	}
 	ft_strcat(join, strs[j - 1], "");
+	join[join_size] = '\0';
 	return (join);
 }

@@ -6,16 +6,14 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 18:20:37 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/31 12:07:40 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:32:27 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	is_space(char a)
 {
 	if (a == 32 || (a >= 9 && a <= 13))
-	{
 		return (1);
-	}
 	return (0);
 }
 
@@ -38,9 +36,7 @@ int	check_valid_base(char *str)
 		while (str[j] != '\0')
 		{
 			if (str[i] == str[j] && (i != j))
-			{
 				return (0);
-			}
 			if (str[j] == '-' || str[j] == '+' || str[j] == ' ')
 				return (0);
 			j++;

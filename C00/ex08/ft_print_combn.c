@@ -6,12 +6,11 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 09:45:48 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/22 09:48:18 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:06:29 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	print_array(char *str, int digits)
 {
@@ -24,9 +23,7 @@ void	print_array(char *str, int digits)
 		i--;
 	}
 	if (str[10 - digits] < ('9' - digits + 1))
-	{
 		write(1, ", ", 2);
-	}
 }
 
 int	get_position(char *str, int size)
