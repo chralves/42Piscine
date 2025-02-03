@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 12:51:54 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/02 19:11:46 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:03:40 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	split_counter(char *str, char *charset)
 	return (words);
 }
 
-void	*add_word(char *str, int , int size)
+void	*add_word(char *str, int size)
 {
 	char	*string;
 	int		i;
@@ -74,7 +74,6 @@ char	**ft_split(char *str, char *charset)
 	char	**array;
 	int		i;
 	int		index;
-	int		;
 
 	i = 0;
 	index = 0;
