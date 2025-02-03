@@ -67,6 +67,7 @@ char	*put_number_in_base_x(int nbr, char *base_to, int i, char *return_nbr)
 		put_number_in_base_x(nbr / base, base_to, i - 1, return_nbr);
 	}
 	return_nbr[i] = base_to[nbr % base];
+	return_nbr[i + 1] = '\0';
 	return (return_nbr);
 }
 
