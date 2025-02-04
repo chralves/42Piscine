@@ -6,13 +6,13 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:22:18 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/04 13:23:16 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:52:01 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	write_hex_value(unsigned char decimal)
+void	write_hex_value(unsigned int decimal)
 {
 	char	hex_value[2];
 	int		index;
@@ -47,11 +47,4 @@ void	ft_putstr_non_printable(char *str)
 			write(1, &str[p], 1);
 		p++;
 	}
-}
-
-int main(void)
-{
-	char *text = (char[]){255, 50, 97, 98};
-
-	ft_putstr_non_printable(text);
 }
