@@ -6,13 +6,11 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:42:51 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/21 16:46:31 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:19:34 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	*ft_print_memory(void *addr, unsigned int size);
 
 void	print_number_in_hexa(unsigned long long decimal, int digits)
 {
@@ -49,14 +47,16 @@ void	print_content_hexa(char *str, int size)
 	while (i < size)
 	{
 		print_number_in_hexa(str[i], 2);
-		print_number_in_hexa(str[i + 1], 2);
-		write(1, " ", 1);
-		i = i + 2;
+		if (i % 2 == 1)
+			write(1, " ", 1);
+		i++;
 	}
 	while (i < 16)
 	{
-		write(1, "     ", 5);
-		i = i + 2;
+		write(1, "  ", 2);
+		if (i % 2 == 1)
+			write(1, " ", 1);
+		i++;
 	}
 }
 
@@ -105,4 +105,10 @@ void	*ft_print_memory(void *addr, unsigned int size)
 			print_size = last_block;
 	}
 	return (addr);
+}
+
+int main (void)
+{
+	char *text = "Exemplo de texto para ler memoria";
+	ft_print_memory(text, 31);
 }

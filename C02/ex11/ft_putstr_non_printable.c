@@ -6,15 +6,13 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:22:18 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/20 14:23:13 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:23:16 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr_non_printable(char *str);
-
-void	write_hex_value(int decimal)
+void	write_hex_value(unsigned char decimal)
 {
 	char	hex_value[2];
 	int		index;
@@ -23,13 +21,11 @@ void	write_hex_value(int decimal)
 	index = 1;
 	hex_value[0] = '0';
 	hex_value[1] = '0';
-	while (decimal >= 0 && index >= 0)
+	while (decimal > 0 && index >= 0)
 	{
 		remainder = (decimal % 16) + 48;
 		if (remainder > '9')
-		{
 			remainder = remainder + 39;
-		}
 		hex_value[index] = remainder;
 		decimal = decimal / 16;
 		index--;
@@ -45,14 +41,17 @@ void	ft_putstr_non_printable(char *str)
 	p = 0;
 	while (str[p] != '\0')
 	{
-		if (str[p] < 32)
-		{
-			write_hex_value(str[p]);
-		}
+		if (str[p] < 32 || str[p] > 126)
+			write_hex_value((unsigned char)str[p]);
 		else
-		{
 			write(1, &str[p], 1);
-		}
 		p++;
 	}
+}
+
+int main(void)
+{
+	char *text = (char[]){255, 50, 97, 98};
+
+	ft_putstr_non_printable(text);
 }
