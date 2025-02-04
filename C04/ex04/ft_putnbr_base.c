@@ -6,13 +6,11 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:18:45 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/04 13:34:09 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:06:27 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	ft_putnbr_base(int nbr, char *base);
 
 int	check_valid_base(char *str)
 {
@@ -22,17 +20,15 @@ int	check_valid_base(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		j = 0;
+		j = i + 1;
 		while (str[j] != '\0')
 		{
-			if (str[i] == str[j] && (i != j))
-			{
-				return (0);
-			}
-			if (str[j] == '-' || str[j] == '+')
+			if (str[i] == str[j])
 				return (0);
 			j++;
 		}
+		if (str[i] == '-' || str[i] == '+')
+			return (0);
 		i++;
 	}
 	if (i > 1)
@@ -40,23 +36,13 @@ int	check_valid_base(char *str)
 	return (0);
 }
 
-int	abs(int num)
-{
-	if (num == -2147483648)
-		return (2147483647);
-	else if (num < 0)
-		return (-num);
-	return (num);
-}
-
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int	bn;
-	int	remainder;
+	int		bn;
+	int		remainder;
 	long	num;
 
 	num = (long)nbr;
-
 	bn = check_valid_base(base);
 	if (bn == 0)
 		return ;

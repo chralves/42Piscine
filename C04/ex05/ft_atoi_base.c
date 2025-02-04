@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:59:31 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/04 13:31:35 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:08:07 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ int	check_valid_base(char *str)
 		while (str[j] != '\0')
 		{
 			if (str[i] == str[j])
-			{
 				return (0);
-			}
 			j++;
-		if (str[i] == '-' || str[i] == '+' || str[i] == ' ')
-			return (0);
 		}
+		if (str[i] == '-' || str[i] == '+' || is_space(str))
+			return (0);
 		i++;
 	}
 	if (i > 1)
