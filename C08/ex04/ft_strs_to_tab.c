@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:06:39 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/03 18:23:10 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:12:53 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ char	*ft_strdup(char *src)
 	return (new_string);
 }
 
-struct s_stock_str *ft_strs_to_tab(int ac, char **av)
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	int	i;
+	int					i;
 	struct s_stock_str	*s;
 
 	s = malloc((ac + 1) * sizeof(struct s_stock_str));
 	if (!s)
 		return (NULL);
 	i = 0;
-	while(i < ac)
+	while (i < ac)
 	{
 		s[i].size = ft_strlen(av[i]);
 		s[i].str = av[i];

@@ -6,11 +6,13 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:42:51 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/04 15:52:00 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:46:31 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	*ft_print_memory(void *addr, unsigned int size);
 
 void	print_number_in_hexa(unsigned long long decimal, int digits)
 {
@@ -47,16 +49,14 @@ void	print_content_hexa(char *str, int size)
 	while (i < size)
 	{
 		print_number_in_hexa(str[i], 2);
-		if (i % 2 == 1)
-			write(1, " ", 1);
-		i++;
+		print_number_in_hexa(str[i + 1], 2);
+		write(1, " ", 1);
+		i = i + 2;
 	}
 	while (i < 16)
 	{
-		write(1, "  ", 2);
-		if (i % 2 == 1)
-			write(1, " ", 1);
-		i++;
+		write(1, "     ", 5);
+		i = i + 2;
 	}
 }
 
@@ -68,9 +68,13 @@ void	print_content_ascii(char *str, int size)
 	while (i < size)
 	{
 		if (str[i] < 32)
+		{
 			write(1, ".", 1);
+		}
 		else
+		{
 			write(1, &str[i], 1);
+		}
 		i++;
 	}
 }
@@ -86,10 +90,10 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	print_size = 16;
 	print_lines = size / 16;
 	if ((size % 16) > 0)
+	{
 		print_lines += 1;
+	}
 	last_block = size % 16;
-	if (print_lines == 1)
-		print_size = last_block;
 	while (i < print_lines)
 	{
 		print_number_in_hexa((unsigned long long) &addr + (16 * i), 16);

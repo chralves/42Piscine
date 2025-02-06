@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:59:31 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/04 16:08:07 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:27:52 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	is_space(char *str)
 
 	i = 0;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+	{
 		i++;
+	}
 	return (i);
 }
 
@@ -28,15 +30,17 @@ int	check_valid_base(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		j = i + 1;
+		j = 0;
 		while (str[j] != '\0')
 		{
-			if (str[i] == str[j])
+			if (str[i] == str[j] && (i != j))
+			{
+				return (0);
+			}
+			if (str[j] == '-' || str[j] == '+' || str[j] == ' ')
 				return (0);
 			j++;
 		}
-		if (str[i] == '-' || str[i] == '+' || is_space(str))
-			return (0);
 		i++;
 	}
 	if (i > 1)

@@ -6,21 +6,13 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:18:45 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/05 10:10:09 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:09:48 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	is_space(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	return (i);
-}
+void	ft_putnbr_base(int nbr, char *base);
 
 int	check_valid_base(char *str)
 {
@@ -30,15 +22,17 @@ int	check_valid_base(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		j = i + 1;
+		j = 0;
 		while (str[j] != '\0')
 		{
-			if (str[i] == str[j])
+			if (str[i] == str[j] && (i != j))
+			{
+				return (0);
+			}
+			if (str[j] == '-' || str[j] == '+')
 				return (0);
 			j++;
 		}
-		if (str[i] == '-' || str[i] == '+' || is_space(str))
-			return (0);
 		i++;
 	}
 	if (i > 1)
@@ -46,28 +40,32 @@ int	check_valid_base(char *str)
 	return (0);
 }
 
+int	abs(int num)
+{
+	if (num == -2147483648)
+		return (2147483647);
+	else if (num < 0)
+		return (-num);
+	return (num);
+}
+
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int		bn;
-	int		remainder;
-	long	num;
+	int	bn;
+	int	remainder;
 
-	num = (long)nbr;
 	bn = check_valid_base(base);
 	if (bn == 0)
 		return ;
-	if (num < 0)
-	{
+	if (nbr < 0)
 		write(1, "-", 1);
-		num *= -1;
-	}
-	if (num >= bn)
+	if (abs(nbr) >= bn)
 	{
-		remainder = num % bn;
-		num = num / bn;
-		ft_putnbr_base(num, base);
+		remainder = abs(nbr % bn);
+		nbr = abs(nbr / bn);
+		ft_putnbr_base(nbr, base);
 		write(1, &base[remainder], 1);
 		return ;
 	}
-	write(1, &base[num], 1);
+	write(1, &base[nbr], 1);
 }

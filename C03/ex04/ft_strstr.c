@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:37:59 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/04 15:59:11 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:40:59 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	is_needle(char *str, char *needle, int p)
 	while (needle[i])
 	{
 		if (needle[i] != str[j] && needle[i] != '\0')
+		{
 			return (-1);
+		}
 		i++;
 		j++;
 	}
@@ -36,14 +38,18 @@ char	*ft_strstr(char *str, char *to_find)
 
 	i = 0;
 	if (to_find[0] == '\0')
+	{
 		return (&str[0]);
+	}
 	while (str[i])
 	{
 		if (str[i] == to_find[0])
 		{
 			p = is_needle(str, to_find, i);
 			if (p >= 0)
+			{
 				return (&str[p]);
+			}
 		}
 		i++;
 	}

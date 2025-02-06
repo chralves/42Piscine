@@ -6,7 +6,7 @@
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:14:23 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/02/03 18:29:16 by chgonzal         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:12:54 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	ft_putnbr(int nb)
 	}
 }
 
-void ft_show_tab(struct s_stock_str *par)
+void	ft_show_tab(struct s_stock_str *par)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (par[i].str != 0)
@@ -68,16 +68,4 @@ void ft_show_tab(struct s_stock_str *par)
 		write(1, "\n", 1);
 		i++;
 	}
-}
-
-#include <stdio.h>
-int main(void)
-{
-
-	struct s_stock_str s1;
-    s1.size = 0;
-    s1.str = 0;
-
-    ft_show_tab(&s1);
-    return (0);
 }

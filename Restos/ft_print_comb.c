@@ -1,34 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chgonzal <chgonzal@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 12:44:00 by chgonzal          #+#    #+#             */
-/*   Updated: 2025/01/22 12:44:49 by chgonzal         ###   ########.fr       */
+/*   Created: 2025/01/15 18:14:17 by chgonzal          #+#    #+#             */
+/*   Updated: 2025/01/16 10:50:22 by chgonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb);
+#include <unistd.h>
+#include <stdio.h>
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+void	ft_print_comb(void);
+
+void	ft_print_comb(void)
 {
-	unsigned int	i;
-	unsigned int	j;
+	char	c;
+	char	d;
+	char	u;
 
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
+	c = '0';
+	d = '1';
+	u = '2';
+	while (c <= '7')
 	{
-		i++;
+		write(1, &c, 1);
+		write(1, &d, 1);
+		write(1, &u++, 1);
+		if (u > '9')
+		{
+			d++;
+			u = d +1;
+		}
+		if (d > '8')
+		{
+			c++;
+			d = c + 1;
+			u = d + 1;
+		}
+		if (c <= '7')
+		{
+			write(1, ", ", 2);
+		}
 	}
-	while (src[j] != '\0' && j < nb)
-	{
-		dest[i] = src[j];
-		j++;
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+}
+
+int	main(void)
+{
+	ft_print_comb();
 }
